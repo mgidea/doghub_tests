@@ -14,16 +14,16 @@ feature 'user submits contact form' do
   # I must specify a last name
   it "creates a valid submission" do
     visit '/contacts'
-    expect(page).to have_content "Contact"
-    click_on 'Contact Us'
+    expect(page).to have_content "Requests"
+    click_on 'New Contact'
     fill_in "Email", with: "tom@gmail.com"
     fill_in "Subject", with: "grooming"
     fill_in "Description", with: "summer cuts"
     fill_in "First name", with: "Tom"
     fill_in "Last name", with: "Corley"
 
-    click_button "Submit"
-    expect(page).to have_content "Request Succesfully submitted"
+    click_button "Create Contact"
+    expect(page).to have_content "Contact was successfully created"
   end
 end
 
