@@ -12,7 +12,7 @@ feature 'user submits contact form' do
   # I must specify a description
   # I must specify a first name
   # I must specify a last name
-  it "creates a valid submission" do
+  scenario "creates a valid submission" do
     visit '/contacts'
     expect(page).to have_content "Requests"
     click_on 'New Contact'
@@ -25,5 +25,18 @@ feature 'user submits contact form' do
     click_button "Create Contact"
     expect(page).to have_content "Contact was successfully created"
   end
+
+  scenario "fails to create valid submission" do
+    visit '/contacts'
+    click_on 'New Contact'
+    click_button "Create Contact"
+
+    expect(page).to have_content "Email can't be blank"
+    expect(page).to have_content "Subject can't be blank"
+    expect(page).to have_content "Description can't be blank"
+    expect(page).to have_content "First name can't be blank"
+    expect(page).to have_content "Last name can't be blank"
+  end
+
 end
 

@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :contact do
-    email "MyString"
-    subject "MyString"
-    description "MyString"
-    first_name "MyString"
-    last_name "MyString"
+    sequence(:email) { |n| "tom#{n}@gmail.com" }
+    sequence(:subject) { |n| "subject#{n}" }
+    sequence(:description) { |n| "description#{n}" }
+    sequence(:first_name) { |n| "firstname#{n}" }
+    sequence(:last_name)  { |n| "lastname#{n}" }
   end
 end
